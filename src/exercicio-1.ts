@@ -2,7 +2,7 @@ export {};
 
 // 1 - Retornando o número de vogais de uma palavra apenas usando a chamada de uma função:
 
-const countVowels = (word: string) => {
+const countVowels = (word: string): number => {
   let count: number = 0;
   let vowels: string[] = ["a", "e", "i", "o", "u"];
   let wordWithoutAccents: string = word.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
