@@ -17,6 +17,13 @@ let lista: Scientist[] = [
 // a) Crie uma função que retorne a bio do id passado
 // Usando loop for
 
+/**
+ * Encontra um objeto Scientist na lista através do id e retorna a bio do mesmo.
+ * @param list Array de Scientists declarado acima.
+ * @param id Id usado para acessar cada objeto Scientist no Array list.
+ * @returns Uma string, que será o atributo bio do objeto Scientist encontrado, caso contrário, "Nenhum cientista encontrado".
+ */
+
 const getScientistBioImperative = (list: Scientist[], id: number): string => {
   let result: string = "Nenhum cientista encontrado";
   for (let i: number = 0; i < list.length; i++) {
@@ -27,10 +34,17 @@ const getScientistBioImperative = (list: Scientist[], id: number): string => {
   return result;
 }
 
-console.log(`a) - Com método imperativo: ${getScientistBioImperative(lista, 4)}`)
+console.log(getScientistBioImperative(lista, 4))
 
 // b) Crie uma função que retorne o name do id passado
 // Usando loop while
+
+/**
+ * Encontra um objeto Scientist na lista através do id e retorna o nome do mesmo.
+ * @param list Array de Scientists declarado acima.
+ * @param id Id usado para acessar cada objeto Scientist no Array list.
+ * @returns Uma string, que será o atributo nome do objeto Scientist encontrado, caso contrário, "Nenhum cientista encontrado".
+ */
 
 const getScientistName = (list: Scientist[], id: number): string => {
   let noScientist: string = "Nenhum cientista encontrado";
@@ -43,6 +57,14 @@ console.log(getScientistName(lista, 4))
 
 // c) Crie uma função que apague um item da lista a partir de um id passado
 
+/**
+ * Apaga um objeto Scientist da lista através do id.
+ * @param list Array de Scientists declarado acima.
+ * @param id Id usado para acessar cada objeto Scientist no Array list.
+ * @returns A lista 'list', atualizada, já sem o objeto Scientist que foi removido ou, caso o
+ * id não seja encontrado na lista, será retornada a lista original.
+ */
+
 const deleteScientist = (list: Scientist[], id: number): Scientist[] => {
   for(let i: number = 0; i < list.length; i++) {
     if(i === id - 1) {
@@ -53,3 +75,36 @@ const deleteScientist = (list: Scientist[], id: number): Scientist[] => {
 }
 
 console.log(deleteScientist(lista, 2));
+
+// d) Crie uma função que altere a bio ou o name a partir de um id passado
+
+/**
+ * Atualiza o nome ou a bio de um objeto Scientist da lista através do id.
+ * @param list Array de Scientists declarado acima.
+ * @param id Id usado para acessar cada objeto Scientist no Array list.
+ * @param name String que será inserida como valor do atributo nome do objeto Scientist selecionado.
+ * @param bio String que será inserida como valor do atributo bio do objeto Scientist selecionado.
+ * @returns O objeto Scientist atualizado, caso tenha sido alterado nome e/ou bio. Caso contrário retorna
+ * uma string "Nenhum cientista encontrado".
+ */
+
+const updateScientist = (list: Scientist[], id: number, name: string, bio: string): Scientist | string => {
+  let scientistToUpdate: Scientist = {id, name, bio};
+  for(let i: number = 0; i < list.length; i++) {
+    if(list[i].id === id) {
+      if (name !== '') {
+        list[i].name = name;
+        scientistToUpdate = list[i];
+      }
+      if (bio !== '') {
+        list[i].bio = bio;
+        scientistToUpdate = list[i];
+      }
+      return scientistToUpdate;
+    }
+  }
+  return "Nenhum cientista encontrado";
+}
+
+console.log(updateScientist(lista, 10, "Ricardo", ""))
+console.log(updateScientist(lista, 3, "", "É programador e já trabalhou com música"))
