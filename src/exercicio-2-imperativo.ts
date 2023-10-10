@@ -24,17 +24,23 @@ let lista: Scientist[] = [
  * @returns Uma string, que será o atributo bio do objeto Scientist encontrado, caso contrário, "Nenhum cientista encontrado".
  */
 
-const getScientistBioImperative = (list: Scientist[], id: number): string => {
-  let result: string = "Nenhum cientista encontrado";
-  for (let i: number = 0; i < list.length; i++) {
-    if (list[i].id === id) {
-      result = list[i].bio;
-    }
+class ScientistList {
+  private scientists: Scientist[];
+
+  constructor(scientistsList: Scientist[]) {
+    this.scientists = scientistsList;
   }
-  return result;
+
+  public getScientistBio(id: number): string {
+    let scientist: Scientist | undefined = this.scientists.find(s => s.id === id);
+    return scientist ? scientist.bio : "Nenhum cientista encontrado";
+  }
 }
 
-console.log(getScientistBioImperative(lista, 4))
+let listOfScientists = new ScientistList(lista);
+
+
+console.log(`Pela classe, ex-2/a: ${listOfScientists.getScientistBio(2)}`)
 
 // b) Crie uma função que retorne o name do id passado
 // Usando loop while
