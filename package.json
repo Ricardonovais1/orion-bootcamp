@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/Ricardonovais1/orion-bootcamp#readme",
   "devDependencies": {
-    "typescript": "^5.2.2"
+    "typescript": "5.2.2"
+  },
+  "dependencies": {
+    "eslint-plugin-tsdoc": "^0.2.17"
   }
 }

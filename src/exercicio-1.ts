@@ -2,10 +2,16 @@ export {};
 
 // 1 - Retornando o número de vogais de uma palavra apenas usando a chamada de uma função:
 
+/**
+ * Conta o número de vogais em uma palavra, ignorando acentos.
+ * @param word A palavra cujas vogais serão contadas.
+ * @returns O número de vogais na palavra.
+ */
+
 const countVowels = (word: string): number => {
   let count: number = 0;
-  let vowels: string[] = ["a", "e", "i", "o", "u"];
-  let wordWithoutAccents: string = word.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+  const vowels: string[] = ["a", "e", "i", "o", "u"];
+  const wordWithoutAccents: string = word.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
 
   wordWithoutAccents
     .split('')
@@ -15,9 +21,9 @@ const countVowels = (word: string): number => {
   return count
 }
 
-let chosenWord: string = 'Tela';
-let numberOfVowels: number = countVowels(chosenWord);
-let output: string = `A expressão '${chosenWord}' tem ${numberOfVowels} vogais`
+const chosenWord: string = 'Tela';
+const numberOfVowels: number = countVowels(chosenWord);
+const output: string = `A expressão '${chosenWord}' tem ${numberOfVowels} vogais`
 
 console.log(output)
 
