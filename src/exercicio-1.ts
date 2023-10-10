@@ -3,9 +3,9 @@ export {};
 // 1 - Retornando o número de vogais de uma palavra apenas usando a chamada de uma função:
 
 const countVowels = (word: string) => {
-  let count = 0;
-  let vowels = ["a", "e", "i", "o", "u"];
-  let wordWithoutAccents = word.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+  let count: number = 0;
+  let vowels: string[] = ["a", "e", "i", "o", "u"];
+  let wordWithoutAccents: string = word.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
 
   wordWithoutAccents
     .split('')
@@ -23,14 +23,14 @@ console.log(output)
 
 // 2 - Retornando o número de vogais de uma palavra inserida em um input de formulário:
 
-const input = document.querySelector('.word-input') as HTMLInputElement;
-const btn = document.getElementById('result-btn');
-const result = document.querySelector('.result');
+const input: HTMLInputElement = document.querySelector('.word-input') as HTMLInputElement;
+const btn: HTMLButtonElement = document.getElementById('result-btn') as HTMLButtonElement;
+const result: HTMLElement = document.querySelector('.result') as HTMLElement;
 
 btn?.addEventListener('click', (e) => {
   e.preventDefault();
   const inputValue: string = input.value;
-  const inputWordCount = countVowels(inputValue);
+  const inputWordCount: number = countVowels(inputValue);
   if(result) {
     result.textContent = inputValue
       ? `A expressão '${inputValue}' tem ${inputWordCount} vogais`
