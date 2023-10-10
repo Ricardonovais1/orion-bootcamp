@@ -1,0 +1,23 @@
+{
+  "name": "orion-bootcamp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ricardonovais1/orion-bootcamp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ricardonovais1/orion-bootcamp/issues"
+  },
+  "homepage": "https://github.com/Ricardonovais1/orion-bootcamp#readme",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}
