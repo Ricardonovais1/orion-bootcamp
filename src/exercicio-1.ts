@@ -30,11 +30,11 @@ console.log(output)
 // 2 - Retornando o número de vogais de uma palavra inserida em um input de formulário:
 
 const input: HTMLInputElement = document.querySelector('.word-input') as HTMLInputElement;
-const btn: HTMLButtonElement = document.getElementById('result-btn') as HTMLButtonElement;
+const ResultButton: HTMLButtonElement = document.getElementById('result-btn') as HTMLButtonElement;
 const result: HTMLElement = document.querySelector('.result') as HTMLElement;
 
-btn?.addEventListener('click', (e) => {
-  e.preventDefault();
+ResultButton?.addEventListener('click', (event: MouseEvent) => {
+  event.preventDefault();
   const inputValue: string = input.value;
   const inputWordCount: number = countVowels(inputValue);
   if(result) {
