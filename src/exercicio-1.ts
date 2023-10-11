@@ -7,7 +7,6 @@ export {};
  * @param word A palavra cujas vogais serão contadas.
  * @returns O número de vogais na palavra.
  */
-
 const countVowels = (word: string): number => {
   let count: number = 0;
   const vowels: string[] = ["a", "e", "i", "o", "u"];
@@ -30,10 +29,10 @@ console.log(output)
 // 2 - Retornando o número de vogais de uma palavra inserida em um input de formulário:
 
 const input: HTMLInputElement = document.querySelector('.word-input') as HTMLInputElement;
-const ResultButton: HTMLButtonElement = document.getElementById('result-btn') as HTMLButtonElement;
+const resultButton: HTMLButtonElement = document.getElementById('result-btn') as HTMLButtonElement;
 const result: HTMLElement = document.querySelector('.result') as HTMLElement;
 
-ResultButton?.addEventListener('click', (event: MouseEvent) => {
+resultButton?.addEventListener('click', (event: MouseEvent) => {
   event.preventDefault();
   const inputValue: string = input.value;
   const inputWordCount: number = countVowels(inputValue);
