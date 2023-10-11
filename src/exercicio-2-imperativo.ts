@@ -29,39 +29,53 @@ class ScientistList {
   }
 
   /**
-   * Encontra um objeto Scientist na lista através do id e retorna a bio do mesmo.
+   * Encontra um objeto Scientist na lista através do id e retorna a bio do mesmo, usando o paradigma
+   * imperativo, com o loop for.
    * @param id Id usado para acessar cada objeto Scientist no Array list.
    * @returns Uma string, que será o atributo bio do objeto Scientist encontrado, caso contrário, "Nenhum cientista encontrado".
    */
   public getScientistBio(id: number): string {
-    let scientist: Scientist | undefined = this.scientists.find(s => s.id === id);
-    return scientist ? scientist.bio : "Nenhum cientista encontrado";
+    let result: string = "Nenhum cientista encontrado";
+    for (let i: number = 0; i < this.scientists.length; i++) {
+      if (this.scientists[i].id === id) {
+        result = this.scientists[i].bio;
+      }
+    }
+    return result;
   }
 
   /**
-   * Encontra um objeto Scientist na lista através do id e apaga o mesmo da lista.
+   * Encontra um objeto Scientist na lista através do id e apaga o mesmo da lista,
+   * com paradigma imperativo, usando loop while.
    * @param id Id usado para acessar cada objeto Scientist no Array list.
    * @returns Uma string, que será o atributo nome do objeto Scientist encontrado, caso contrário, "Nenhum cientista encontrado".
    */
   public getScientistName(id: number): string {
-    let scientist: Scientist | undefined = this.scientists.find(s => s.id === id);
-    return scientist ? scientist.name : "Nenhum cientista encontrado";
+    let noScientist: string = "Nenhum cientista encontrado";
+    let i: number = 0;
+    while(this.scientists[i].id !== id && i < this.scientists.length - 1) { i++ }
+    return i + 1 === id ? this.scientists[i].name : noScientist;
   }
 
   /**
-   * Apaga um objeto Scientist da lista através do id.
+   * Apaga um objeto Scientist da lista através do id, usando o paradigma
+   * imperativo, com o loop for.
    * @param id Id usado para acessar cada objeto Scientist no Array list.
    * @returns A lista 'list', atualizada, já sem o objeto Scientist que foi removido ou, caso o
    * id não seja encontrado na lista, será retornada a lista original.
    */
   public deleteScientist(id: number): Scientist[] {
-    let scientist: Scientist | undefined = this.scientists.find(s => s.id === id);
-    scientist ? this.scientists.splice(this.scientists.indexOf(scientist), 1) : this.scientists
-    return this.scientists
+    for(let i: number = 0; i < this.scientists.length; i++) {
+      if(i === id - 1) {
+        this.scientists.splice(i, 1);
+      }
+    }
+    return this.scientists;
   }
 
   /**
-   * Atualiza o nome ou a bio de um objeto Scientist da lista através do id.
+   * Atualiza o nome ou a bio de um objeto Scientist da lista através do id,
+   * utilizando paradigma imperativo, com mutação direta e loop for.
    * @param id Id usado para acessar cada objeto Scientist no Array list.
    * @param name String que será inserida como valor do atributo nome do objeto Scientist selecionado.
    * @param bio String que será inserida como valor do atributo bio do objeto Scientist selecionado.
@@ -69,7 +83,12 @@ class ScientistList {
    * uma string "Nenhum cientista encontrado".
    */
   public updateScientist(id: number, name: string, bio: string): Scientist | string {
-    let scientistToUpdate: Scientist | undefined = this.scientists.find(s => s.id === id);
+    let scientistToUpdate: Scientist | undefined = {id, name, bio};
+    for(let i: number = 0; i < this.scientists.length; i++) {
+      if(i === id - 1) {
+        scientistToUpdate = this.scientists[i];
+      }
+    }
     if (scientistToUpdate) {
       if (name !== '') {
         scientistToUpdate.name = name;

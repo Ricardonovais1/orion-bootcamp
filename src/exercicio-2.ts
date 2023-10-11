@@ -22,7 +22,7 @@ let lista: Scientist[] = [
  * @returns Uma string, que será a bio do objeto Scientist encontrado, caso contrário "Nenhum cientista encontrado".
  */
 const getScientistBio = (list: Scientist[], id: number): string => {
-  let scientist: Scientist | undefined = list.find(s => s.id === id);
+  let scientist: Scientist | undefined = list.find(scientist => scientist.id === id);
   return scientist ? scientist.bio : "Nenhum cientista encontrado";
 }
 
@@ -35,7 +35,7 @@ console.log(getScientistBio(lista, 3))
  * @returns Uma string, que será o atributo nome do objeto Scientist encontrado, caso contrário, "Nenhum cientista encontrado".
  */
 const getScientistName = (list: Scientist[], id: number): string => {
-  let scientist: Scientist | undefined = list.find(s => s.id === id);
+  let scientist: Scientist | undefined = list.find(scientist => scientist.id === id);
   return scientist ? scientist.name : "Nenhum cientista encontrado";
 }
 
@@ -48,13 +48,22 @@ console.log(getScientistName(lista, 3))
  * @returns A lista 'list', atualizada, já sem o objeto Scientist que foi removido ou, caso o
  * id não seja encontrado na lista, será retornada a lista original.
  */
-const deleteScientist = (list: Scientist[], id: number): Scientist[] => {
-  let scientist: Scientist | undefined = list.find(s => s.id === id);
-  scientist ? list.splice(list.indexOf(scientist), 1) : list
-  return list
+const deleteScientist = (list: Scientist[], id: number): Scientist[] | string => {
+  let scientist: Scientist | undefined = list.find(scientist => scientist.id === id);
+  let updatedList: Scientist[] = [];
+  if(scientist) {
+    for(let i:number = 0; i < list.length; i++) {
+      if(i !== id - 1) {
+        updatedList.push(list[i]);
+      }
+    }
+  } else {
+    return "Nenhum cientista encontrado com este id";
+  }
+  return updatedList
 }
 
-console.log(deleteScientist(lista, 10))
+console.log(deleteScientist(lista, 1))
 
 /**
  * Atualiza o nome ou a bio de um objeto Scientist da lista através do id.
@@ -66,7 +75,7 @@ console.log(deleteScientist(lista, 10))
  * uma string "Nenhum cientista encontrado".
  */
 const updateScientist = (list: Scientist[], id: number, name: string, bio: string): Scientist | string => {
-  let scientistToUpdate: Scientist | undefined = list.find(s => s.id === id);
+  let scientistToUpdate: Scientist | undefined = list.find(scientist => scientist.id === id);
   if (scientistToUpdate) {
     if (name !== '') {
       scientistToUpdate.name = name;
