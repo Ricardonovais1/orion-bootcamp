@@ -17,7 +17,7 @@ let lista2A: Scientist[] = [
 /**
  * Exercício 1 - Pegando a tabela que está no html.
  */
-const table = document.getElementById('scientists-table');
+const table: HTMLElement = document.getElementById('scientists-table') as HTMLElement;
 
 /**
  * Apaga todos os registros da tabela, depois cria as linhas (tr) da tabela de cientistas, fazendo um loop na lista e criando as td's.
@@ -31,17 +31,17 @@ function createScientistsRow(listOfScientists: Scientist[]) {
   }
 
   listOfScientists.forEach(scientist => {
-    const tr = document.createElement("tr");
+    const tr: HTMLElement = document.createElement("tr") as HTMLElement;
 
-    const tdId = document.createElement("td")
+    const tdId: HTMLElement = document.createElement("td")
     tdId.innerHTML = `${scientist.id}`
     tr.appendChild(tdId)
 
-    const tdName = document.createElement("td")
+    const tdName: HTMLElement = document.createElement("td")
     tdName.textContent = scientist.name
     tr.appendChild(tdName)
 
-    const tdBio = document.createElement("td")
+    const tdBio: HTMLElement = document.createElement("td")
     tdBio.textContent = scientist.bio
     tr.appendChild(tdBio)
 
@@ -57,7 +57,7 @@ const resultEx3A: HTMLElement = document.querySelector('.result-3-a') as HTMLEle
 const idInput3A: HTMLInputElement = document.querySelector('.id-input-3-A') as HTMLInputElement;
 const resultButtonEx3A: HTMLButtonElement = document.querySelector('.result-btn-ex-3-a') as HTMLButtonElement;
 
-resultButtonEx3A?.addEventListener('click', (event) => {
+resultButtonEx3A?.addEventListener('click', (event: MouseEvent) => {
   event.preventDefault();
   const userIdInput: number = Number(idInput3A?.value);
   idInput3A.textContent = "";
@@ -83,7 +83,7 @@ const resultEx3B: HTMLElement = document.querySelector('.result-3-b') as HTMLEle
 const idInput3B: HTMLInputElement = document.querySelector('.id-input-3-b') as HTMLInputElement;
 const resultButtonEx3B: HTMLButtonElement = document.querySelector('.result-btn-ex-3-b') as HTMLButtonElement;
 
-resultButtonEx3B?.addEventListener('click', (event) => {
+resultButtonEx3B?.addEventListener('click', (event: MouseEvent) => {
   event.preventDefault();
   const userIdInput: number = Number(idInput3B?.value);
   idInput3B.focus();
@@ -107,7 +107,7 @@ const resultEx3C: HTMLElement = document.querySelector('.result-3-c') as HTMLEle
 const idInput3C: HTMLInputElement = document.querySelector('.id-input-3-c') as HTMLInputElement;
 const resultButtonEx3C: HTMLButtonElement = document.querySelector('.result-btn-ex-3-c') as HTMLButtonElement;
 
-resultButtonEx3C?.addEventListener('click', (event) => {
+resultButtonEx3C?.addEventListener('click', (event: MouseEvent) => {
   event.preventDefault();
   const userIdInput: number = Number(idInput3C?.value);
   idInput3C.focus();
@@ -138,7 +138,7 @@ const nameInput3D: HTMLInputElement = document.querySelector('.name-input-3-d') 
 const bioInput3D: HTMLInputElement = document.querySelector('.bio-input-3-d') as HTMLInputElement;
 const resultButtonEx3D: HTMLButtonElement = document.querySelector('.result-btn-ex-3-d') as HTMLButtonElement;
 
-resultButtonEx3D?.addEventListener('click', (event) => {
+resultButtonEx3D?.addEventListener('click', (event: MouseEvent) => {
   event.preventDefault();
   const userIdInput: number = Number(idInput3D?.value);
   const userNameInput: string = nameInput3D?.value;
