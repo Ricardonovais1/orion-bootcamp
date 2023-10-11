@@ -21,7 +21,6 @@ let lista: Scientist[] = [
  * @param id Id usado para acessar cada objeto Scientist no Array list.
  * @returns Uma string, que será a bio do objeto Scientist encontrado, caso contrário "Nenhum cientista encontrado".
  */
-
 const getScientistBio = (list: Scientist[], id: number): string => {
   let scientist: Scientist | undefined = list.find(s => s.id === id);
   return scientist ? scientist.bio : "Nenhum cientista encontrado";
@@ -35,7 +34,6 @@ console.log(getScientistBio(lista, 3))
  * @param id Id usado para acessar cada objeto Scientist no Array list.
  * @returns Uma string, que será o atributo nome do objeto Scientist encontrado, caso contrário, "Nenhum cientista encontrado".
  */
-
 const getScientistName = (list: Scientist[], id: number): string => {
   let scientist: Scientist | undefined = list.find(s => s.id === id);
   return scientist ? scientist.name : "Nenhum cientista encontrado";
@@ -50,7 +48,6 @@ console.log(getScientistName(lista, 3))
  * @returns A lista 'list', atualizada, já sem o objeto Scientist que foi removido ou, caso o
  * id não seja encontrado na lista, será retornada a lista original.
  */
-
 const deleteScientist = (list: Scientist[], id: number): Scientist[] => {
   let scientist: Scientist | undefined = list.find(s => s.id === id);
   scientist ? list.splice(list.indexOf(scientist), 1) : list
@@ -68,7 +65,6 @@ console.log(deleteScientist(lista, 10))
  * @returns O objeto Scientist atualizado, caso tenha sido alterado nome e/ou bio. Caso contrário retorna
  * uma string "Nenhum cientista encontrado".
  */
-
 const updateScientist = (list: Scientist[], id: number, name: string, bio: string): Scientist | string => {
   let scientistToUpdate: Scientist | undefined = list.find(s => s.id === id);
   if (scientistToUpdate) {
