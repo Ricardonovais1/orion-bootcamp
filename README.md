@@ -56,3 +56,4 @@ Altere a variável chosenWord o retorno no console do navegador será atualizado
 ### b) Dar exemplo de uso com uma palavra recebida via input no formulário:
 
 Abra http://localhost:5500, insira uma expressão no input e clique em 'Ver resultado'.
+
