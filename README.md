@@ -1,5 +1,7 @@
 # ORION BOOTCAMP
 
+![Preview](public/img/app-ex-3.gif)
+
 ## EXERCÍCIOS DA SEMANA 1:
 
 ### Para inicializar a estrutura do exercício 1 foram utilizados os seguintes passos:
