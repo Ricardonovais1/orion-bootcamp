@@ -49,7 +49,12 @@ console.log(getScientistName(lista, 3))
  * id não seja encontrado na lista, será retornada a lista original.
  */
 const deleteScientist = (list: Scientist[], id: number): Scientist[] | string => {
-  let scientist: Scientist | undefined = list.find(scientist => scientist.id === id);
+  let scientist: Scientist | undefined;
+  for(let i: number = 0; i < list.length; i++) {
+    if(i === id - 1) {
+      scientist = list[i];
+    }
+  }
   let updatedList: Scientist[] = [];
   if(scientist) {
     for(let i:number = 0; i < list.length; i++) {
