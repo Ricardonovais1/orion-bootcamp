@@ -1,5 +1,7 @@
 # ORION BOOTCAMP
 
+Visite a página do exercício no GITHUB PAGES: https://ricardonovais1.github.io/orion-bootcamp/
+
 ![Preview](public/img/app-ex-3.gif)
 
 ## EXERCÍCIOS DA SEMANA 1:
