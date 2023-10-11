@@ -3,9 +3,47 @@
   padding: 0;
 }
 
+header {
+  display: flex;
+  width: 100vw;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4em;
+  padding: 1rem;
+  background-color: rgb(12, 104, 224);
+}
+
+.logo {
+  width: 10rem;
+}
+
+h2 {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  margin-right: 2rem;
+}
+
+li {
+  margin-right: 1rem;
+  color: #fafafa;
+}
+
+a {
+  text-decoration: none;
+
+}
+
+.logo {
+  margin-left: 2rem;
+}
+
 body {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -13,12 +51,36 @@ body {
   align-items: center;
 }
 
-#result-btn {
-  margin: 20px 0;
-  background-color: aquamarine;
+.exercise-item {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 10px;
+  align-items: start;
+}
+
+#result-btn,
+.result-btn-ex-3-a,
+.result-btn-ex-3-b,
+.result-btn-ex-3-c,
+.result-btn-ex-3-d {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  background-color: rgb(12, 104, 224);
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.result,
+.result-2-a,
+.result-2-b,
+.result-2-c,
+.result-2-d {
+  margin-bottom: 1rem;
 }
 
 form {
@@ -32,4 +94,21 @@ input {
 
 #exercise-title {
   margin-left: 0;
+}
+
+hr {
+  color: #666;
+}
+
+#scientists-table {
+  width: 50vw;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: .5rem;
+}
+
+table {
+  margin-bottom: 2rem;
 }

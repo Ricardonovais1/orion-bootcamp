@@ -7,11 +7,28 @@
   <title>Exercícios Semana 1</title>
 </head>
 <body>
+  <header>
+    <div class="logo">
+      <img src="./public/img/Logo_Ricardo_Novais_Branca.png" alt="Logo Ricardo Novais" class="logo">
+    </div>
+    <nav>
+      <ul>
+        <a href="#ex-1"><li>Ex-1</li></a>
+        <a href="#ex-2"><li>Ex-3</li></a>
+        <a href="#ex-3-A"><li>Ex-3A</li></a>
+        <a href="#ex-3-B"><li>Ex-3B</li></a>
+        <a href="#ex-3-c"><li>Ex-3C</li></a>
+        <a href="#ex-3-c"><li>Ex-3D</li></a>
+      </ul>
+    </nav>
+  </header>
+  <div class="exercise-item">
+    <h2 id="ex-1">Exercício 1::Contagem de vogais</h2>
     <form action="">
       <div>
         <label for="word">Insira uma palavra e veja quantas vogais ela tem:</label>
-      <div>
       </div>
+      <div>
         <input type="text" name="word" class="word-input">
       </div>
 
@@ -23,11 +40,109 @@
     <div>
       <p class="result"></p>
     </div>
-
   </div>
 
+  <div class="exercise-item">
+    <h2 id="ex-2">Exercício 2::Cientistas</h2>
+    <table id="scientists-table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nome</th>
+          <th>Bio</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+
+  <div class="exercise-item">
+    <h3 id="ex-3-A">3-A::Retornar a Bio</h3>
+    <form action="">
+      <div>
+        <label for="word">Insira o id do cientista para visualizar sua bio:</label>
+      </div>
+      <div>
+        <input type="number" name="number" class="id-input-3-A">
+      </div>
+
+      <div>
+        <button class="result-btn-ex-3-a">Ver resultado</button>
+      </div>
+    </form>
+
+    <div>
+      <p class="result-3-a"></p>
+    </div>
+  </div>
+
+  <div class="exercise-item">
+    <h3 id="ex-3-B">3-B::Retornar o nome</h3>
+    <form action="">
+      <div>
+        <label for="word">Insira o id do cientista para visualizar seu nome:</label>
+      </div>
+      <div>
+        <input type="number" name="number" class="id-input-3-b">
+      </div>
+
+      <div>
+        <button class="result-btn-ex-3-b">Ver resultado</button>
+      </div>
+    </form>
+
+    <div>
+      <p class="result-3-b"></p>
+    </div>
+  </div>
+
+  <div class="exercise-item">
+    <h3 id="ex-3-c">3-C::Deletar cientista</h3>
+    <form action="">
+      <div>
+        <label for="word">Insira o id do cientista para visualizar seu nome:</label>
+      </div>
+      <div>
+        <input type="number" name="number" class="id-input-3-c">
+      </div>
+
+      <div>
+        <button class="result-btn-ex-3-c">Ver resultado</button>
+      </div>
+    </form>
+
+    <div>
+      <p class="result-3-c"></p>
+    </div>
+  </div>
+
+  <div class="exercise-item">
+    <h3 id="ex-3-d">3-D::Alterar dados de cientista</h3>
+    <form action="">
+      <div>
+        <label for="id">Insira o id do cientista cujos dados deseja atualizar:</label>
+        <input type="number" name="id" class="id-input-3-d">
+      </div>
+      <div>
+        <label for="name">Insira o nome (opcional):</label>
+        <input type="text" name="name" class="name-input-3-d">
+      </div>
+      <div>
+        <label for="bio">Insira a bio (opcional):</label>
+        <input type="text" name="bio" class="bio-input-3-d">
+      </div>
+
+      <div>
+        <button class="result-btn-ex-3-d">Ver resultado</button>
+      </div>
+    </form>
+
+    <div>
+      <p class="result-3-d"></p>
+    </div>
+  </div>
   <script type="module" src="dist/exercicio-1.js"></script>
   <script type="module" src="dist/exercicio-2.js"></script>
   <script type="module" src="dist/exercicio-2-imperativo.js"></script>
+  <script type="module" src="dist/exercicio-3.js"></script>
 </body>
 </html>
