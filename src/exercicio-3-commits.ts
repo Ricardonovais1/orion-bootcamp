@@ -105,7 +105,7 @@ function printCommit(commit: GithubCommit, count: number) {
   let commitTime: string = `${commit.commit.author.date.split('T')[1].split(":")[0]}:${commit.commit.author.date.split('T')[1].split(":")[1]}`;
 
   let commitDiv: HTMLElement = document.createElement("div");
-  commitDiv.classList.add('.commit-div');
+  commitDiv.classList.add('commit-div');
   let commitID: HTMLElement = document.createElement("h3");
   commitID.textContent = `ID: ${count}`;
   commitDiv.appendChild(commitID);
@@ -115,7 +115,7 @@ function printCommit(commit: GithubCommit, count: number) {
   commitDiv.appendChild(commitMessageElement);
 
   let commitDateTimeElement: HTMLElement = document.createElement("p");
-  commitDateTimeElement.textContent = `Quando: ${commitDate} | ${commitTime}`;
+  commitDateTimeElement.textContent = `Quando: ${commitDate} | ${commitTime}h`;
   commitDiv.appendChild(commitDateTimeElement);
 
   commitHistory?.appendChild(commitDiv);
