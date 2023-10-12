@@ -88,15 +88,38 @@ function getCommitsGihubApi() {
     }
 
     let data = await (res.json());
-    console.log(data)
+    let commitCount: number = 0;
     data.forEach((commit: GithubCommit) => {
-      printCommit(commit)
+      commitCount++;
+      printCommit(commit, commitCount);
+      commitCount++;
     })
   })
 }
 
 getCommitsGihubApi();
 
-function printCommit(commit: GithubCommit) {
+function printCommit(commit: GithubCommit, count: number) {
+  let commitMessage: string = commit.commit.message;
+  let commitDate: string = commit.commit.author.date.split('T')[0];
+  let commitTime: string = `${commit.commit.author.date.split('T')[1].split(":")[0]}:${commit.commit.author.date.split('T')[1].split(":")[1]}`;
 
+  let commitDiv: HTMLElement = document.createElement("div");
+  commitDiv.classList.add('.commit-div');
+  let commitID: HTMLElement = document.createElement("h3");
+  commitID.textContent = `ID: ${count}`;
+  commitDiv.appendChild(commitID);
+
+  let commitMessageElement: HTMLElement = document.createElement("p");
+  commitMessageElement.textContent = `Mensagem: ${commitMessage}`;
+  commitDiv.appendChild(commitMessageElement);
+
+  let commitDateTimeElement: HTMLElement = document.createElement("p");
+  commitDateTimeElement.textContent = `Quando: ${commitDate} | ${commitTime}`;
+  commitDiv.appendChild(commitDateTimeElement);
+
+  commitHistory?.appendChild(commitDiv);
+
+  console.log(commit.commit.author.date.split('T')[0])
+  console.log(`${commit.commit.author.date.split('T')[1].split(":")[0]}:${commit.commit.author.date.split('T')[1].split(":")[1]}`)
 }

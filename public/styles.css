@@ -88,6 +88,19 @@ form {
   flex-direction: column;
 }
 
+.commit-history {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 50vw;
+}
+
+.commit-div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 input {
   margin-top: 10px;
 }
