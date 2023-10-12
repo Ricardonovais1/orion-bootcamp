@@ -4,13 +4,13 @@
 }
 
 body {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   gap: 10px;
   align-items: center;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #result-btn {
@@ -28,4 +28,8 @@ form {
 
 input {
   margin-top: 10px;
+}
+
+#exercise-title {
+  margin-left: 0;
 }
