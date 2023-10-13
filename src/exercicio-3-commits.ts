@@ -87,13 +87,18 @@ function getCommitsGihubApi() {
       throw new Error(res.status.toString());
     }
 
-    let data = await (res.json());
+    return res.json();
+  })
+  .then(data => {
     let commitCount: number = 0;
     data.forEach((commit: GithubCommit) => {
       commitCount++;
       printCommit(commit, commitCount);
       commitCount++;
     })
+  })
+  .catch(error => {
+    console.log("Houve um erro: " + error)
   })
 }
 
@@ -106,7 +111,7 @@ function printCommit(commit: GithubCommit, count: number) {
 
   let commitDiv: HTMLElement = document.createElement("div");
   commitDiv.classList.add('commit-div');
-  let commitID: HTMLElement = document.createElement("h3");
+  let commitID: HTMLElement = document.createElement("h4");
   commitID.textContent = `ID: ${count}`;
   commitDiv.appendChild(commitID);
 
