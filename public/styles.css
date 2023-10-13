@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+:root {
+  --main-color: rgb(48, 128, 231);
+  --light-color: rgb(80, 148, 236);
+}
+
 header {
   display: flex;
   width: 100vw;
@@ -10,7 +15,8 @@ header {
   align-items: center;
   gap: 4em;
   padding: 1rem;
-  background-color: rgb(12, 104, 224);
+  background-color: var(--main-color);
+  margin-bottom: 3rem;
 }
 
 .logo {
@@ -19,6 +25,11 @@ header {
 
 h2 {
   margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  color: var(--main-color);
   margin-bottom: 2rem;
 }
 
@@ -76,11 +87,12 @@ body {
 }
 
 .result,
-.result-2-a,
-.result-2-b,
-.result-2-c,
-.result-2-d {
+.result-3-a,
+.result-3-b,
+.result-3-c,
+.result-3-d {
   margin-bottom: 1rem;
+  color: var(--main-color);
 }
 
 form {
@@ -93,14 +105,19 @@ form {
   flex-direction: column;
   gap: 1rem;
   width: 50vw;
+  margin-bottom: 4rem;
 }
 
 .commit-div {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  border: 1px solid black;
-  padding: .5rem;
+  border-radius: .5rem;
+  border: 0px solid var(--main-color);
+  padding: 1rem;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.57);
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.57);
 }
 
 input {
@@ -119,11 +136,39 @@ hr {
   width: 50vw;
 }
 
-th, td {
-  border: 1px solid black;
+td {
+  border: 1px solid var(--light-color);
   padding: .5rem;
+  background-color: var(--light-color);
+  color: #fff;
+}
+
+th {
+  background-color: var(--main-color);
+  color: #fff;
+  padding: .3rem;
 }
 
 table {
   margin-bottom: 2rem;
+}
+
+footer {
+  width: 100vw;
+  background-color: var(--main-color);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer img {
+  width: 10rem;
+}
+
+hr {
+  z-index: 2;
+  color: var(--main-color);
+  margin: 1rem;
 }

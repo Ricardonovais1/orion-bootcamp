@@ -18,6 +18,8 @@ let lista2A: Scientist[] = [
  * Exercício 1 - Pegando a tabela que está no html.
  */
 const table: HTMLElement = document.getElementById('scientists-table') as HTMLElement;
+const tableBody: HTMLElement = document.querySelector(".table-body") as HTMLElement;
+
 
 /**
  * Apaga todos os registros da tabela, depois cria as linhas (tr) da tabela de cientistas, fazendo um loop na lista e criando as td's.
@@ -26,8 +28,8 @@ const table: HTMLElement = document.getElementById('scientists-table') as HTMLEl
  */
 function createScientistsRow(listOfScientists: Scientist[]) {
 
-  while (table?.firstChild) {
-    table.removeChild(table.firstChild);
+  while (tableBody?.firstChild) {
+    tableBody.removeChild(tableBody.firstChild);
   }
 
   listOfScientists.forEach(scientist => {
@@ -45,7 +47,7 @@ function createScientistsRow(listOfScientists: Scientist[]) {
     tdBio.textContent = scientist.bio
     tr.appendChild(tdBio)
 
-    table?.appendChild(tr);
+    tableBody?.appendChild(tr);
   })
 }
 
