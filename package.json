@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "tsc --watch",
-    "build": "webpack --mode production"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
