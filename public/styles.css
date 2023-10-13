@@ -16,7 +16,6 @@ header {
   gap: 4em;
   padding: 1rem;
   background-color: var(--main-color);
-  margin-bottom: 3rem;
 }
 
 .logo {
@@ -69,6 +68,11 @@ body {
   justify-content: space-around;
   gap: 10px;
   align-items: start;
+}
+
+.app-title {
+  width: 50vw;
+  padding: 2rem 0;
 }
 
 #result-btn,
@@ -169,6 +173,7 @@ footer img {
 
 hr {
   z-index: 2;
-  color: var(--main-color);
-  margin: 1rem;
+  color: var(--light-color);
+  margin-bottom: 1rem;
+  width: 50vw;
 }
