@@ -90,11 +90,11 @@ function getCommitsGihubApi() {
     return res.json();
   })
   .then(data => {
-    let commitCount: number = 0;
+    let commitCount: number = data.length;
     data.forEach((commit: GithubCommit) => {
-      commitCount++;
+      // commitCount--;
       printCommit(commit, commitCount);
-      commitCount++;
+      commitCount--;
     })
   })
   .catch(error => {
@@ -120,7 +120,7 @@ function printCommit(commit: GithubCommit, count: number) {
   commitDiv.appendChild(commitMessageElement);
 
   let commitDateTimeElement: HTMLElement = document.createElement("p");
-  commitDateTimeElement.textContent = `Quando: ${commitDate} | ${commitTime}h`;
+  commitDateTimeElement.textContent = `${commitDate} | ${commitTime}h`;
   commitDiv.appendChild(commitDateTimeElement);
 
   commitHistory?.appendChild(commitDiv);
