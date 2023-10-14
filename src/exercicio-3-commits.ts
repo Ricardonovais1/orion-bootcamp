@@ -1,85 +1,16 @@
 export {};
+import { GithubCommit } from "./interface_githubcommit";
 
 const commitHistory: HTMLElement | null = document.querySelector('.commit-history');
 
-interface GithubCommit {
-  sha: string;
-  node_id: string;
-  commit: {
-    author: {
-      name: string;
-      email: string;
-      date: string;
-    };
-    committer: {
-      name: string;
-      email: string;
-      date: string;
-    };
-    message: string;
-    tree: {
-      sha: string;
-      url: string;
-    };
-    url: string;
-    comment_count: number;
-    verification: {
-      verified: boolean;
-      reason: string;
-      signature: string;
-      payload: string;
-    };
-  };
-  url: string;
-  html_url: string;
-  comments_url: string;
-  author: {
-    login: string;
-    id: number;
-    node_id: string;
-    avatar_url: string;
-    gravatar_id: string;
-    url: string;
-    html_url: string;
-    followers_url: string;
-    following_url: string;
-    gists_url: string;
-    starred_url: string;
-    subscriptions_url: string;
-    organizations_url: string;
-    repos_url: string;
-    events_url: string;
-    received_events_url: string;
-    type: string;
-    site_admin: boolean;
-  };
-  committer: {
-    login: string;
-    id: number;
-    node_id: string;
-    avatar_url: string;
-    gravatar_id: string;
-    url: string;
-    html_url: string;
-    followers_url: string;
-    following_url: string;
-    gists_url: string;
-    starred_url: string;
-    subscriptions_url: string;
-    organizations_url: string;
-    repos_url: string;
-    events_url: string;
-    received_events_url: string;
-    type: string;
-    site_admin: boolean;
-  };
-  parents: Array<{
-    sha: string;
-    url: string;
-    html_url: string;
-  }>;
-}
 
+/**
+ * Acessa o endpoint de commits do repositório orion-bootcamp de forma assíncrona - AJAX.
+ * Imprime os commits em ordem decrescente.
+ * @returns Resposta da requisição em formato json e itera
+ * sobre estes registros para imprimir estes resultados usando a função
+ * printCommit.
+ */
 function getCommitsGihubApi() {
   fetch("https://api.github.com/repos/Ricardonovais1/orion-bootcamp/commits")
   .then(async res => {
@@ -92,7 +23,6 @@ function getCommitsGihubApi() {
   .then(data => {
     let commitCount: number = data.length;
     data.forEach((commit: GithubCommit) => {
-      // commitCount--;
       printCommit(commit, commitCount);
       commitCount--;
     })
@@ -104,6 +34,12 @@ function getCommitsGihubApi() {
 
 getCommitsGihubApi();
 
+/**
+ * Pega a mensagem de cada commit, seu id sua data e horário e os imprime na div de commits.
+ * @param commit Objeto do tipo GithubCommit.
+ * @param count Número que começa no commit mais recente a decresce até 1.
+ * @returns O HTML do id, a mensagem, data e horário de cada commit.
+ */
 function printCommit(commit: GithubCommit, count: number) {
   let commitMessage: string = commit.commit.message;
   let commitDate: string = commit.commit.author.date.split('T')[0];

@@ -74,7 +74,7 @@ resultButtonEx3A?.addEventListener('click', (event: MouseEvent) => {
  * @returns Uma string, que será a bio do objeto Scientist encontrado, caso contrário "Nenhum cientista encontrado".
  */
 const getScientistBio = (list: Scientist[], id: number): string => {
-  let scientist: Scientist | undefined = list.find(s => s.id === id);
+  let scientist: Scientist | undefined = list.find(scientist => scientist.id === id);
   return scientist ? scientist.bio : "Nenhum cientista encontrado";
 }
 
@@ -99,7 +99,7 @@ resultButtonEx3B?.addEventListener('click', (event: MouseEvent) => {
  * @returns Uma string, que será o atributo nome do objeto Scientist encontrado, caso contrário, "Nenhum cientista encontrado".
  */
 const getScientistName = (list: Scientist[], id: number): string => {
-  let scientist: Scientist | undefined = list.find(s => s.id === id);
+  let scientist: Scientist | undefined = list.find(scientist => scientist.id === id);
   return scientist ? scientist.name : "Nenhum cientista encontrado";
 }
 
@@ -124,7 +124,7 @@ resultButtonEx3C?.addEventListener('click', (event: MouseEvent) => {
  * id não seja encontrado na lista, será retornada a lista original.
  */
 const deleteScientist = (list: Scientist[], id: number): string => {
-  let scientist: Scientist | undefined = list.find(s => s.id === id);
+  let scientist: Scientist | undefined = list.find(scientist => scientist.id === id);
   scientist ? list.splice(list.indexOf(scientist), 1) : list
   createScientistsRow(list)
   return scientist
@@ -159,7 +159,7 @@ resultButtonEx3D?.addEventListener('click', (event: MouseEvent) => {
  * uma string "Nenhum cientista encontrado".
  */
 const updateScientist = (list: Scientist[], id: number, name: string, bio: string): string => {
-  let scientistToUpdate: Scientist | undefined = list.find(s => s.id === id);
+  let scientistToUpdate: Scientist | undefined = list.find(scientist => scientist.id === id);
   if (scientistToUpdate) {
     if (name !== '') {
       scientistToUpdate.name = name;
