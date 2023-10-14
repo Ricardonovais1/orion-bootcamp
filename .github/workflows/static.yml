@@ -26,7 +26,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: https://Ricardonovais1.github.io/orion-bootcamp
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,8 +35,8 @@ jobs:
         uses: actions/configure-pages@v3
       - name: Install dependencies
         run: npm install
-      - name: Start project
-        run: npm start
+      - name: Build project
+        run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
